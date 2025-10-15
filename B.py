@@ -14,18 +14,26 @@ for i in range(num_convidados):
         comida = input()
         if len(lista_comidas) >= 1:
             chave = True
-            for repetida in lista_comidas and chave == True:
-                if repetida == comida:
-                    print(f"Na Festa do Calabreso não pode comida Repetida SAI FORA {lista_convidados.index(i)}")
-                    lista_convidados.pop()
-                else:
-                    lista_comidas.append(comida)
-                    valor_comida.append(input())
-                    passou+=1
+            j = 0
+            repetida = False
+            for palavra in lista_comidas:
+                if chave == True:
+                    if palavra == comida:
+                        repetida = True
+                j+=1
+                if j == len(lista_comidas):
                     chave = False
+            
+            if repetida == True:
+                print(f"Na Festa do Calabreso não pode comida Repetida SAI FORA {lista_convidados[-1]}")
+                lista_convidados.pop()
+            else:
+                lista_comidas.append(comida)
+                valor_comida.append(int(input()))
+                passou+=1
         else:
             lista_comidas.append(comida)
-            valor_comida.append(input())
+            valor_comida.append(int(input()))
             passou+=1
 
 if passou == 0 or len(lista_convidados) == 0:
@@ -46,18 +54,19 @@ else:
         comida_barata = lista_comidas[i_comida_barata]
         print(f"Rapaz, {pessoa_comida_barata} trouxe o(a) {comida_barata} que estava altamente mais ou menos!!!")
 
-print("Lista de convidados do Calabreso")
+n = len(valor_comida)
+for i in range(n-1):
+    for j in range(n-i-1):
+        if valor_comida[j] > valor_comida[j+1]:
+            valor_comida[j], valor_comida[j+1] = valor_comida[j+1], valor_comida[j]
+            lista_convidados[j], lista_convidados[j+1] = lista_convidados[j+1], lista_convidados[j]
+        elif valor_comida[j] == valor_comida[j+1]:
+            nomes_iguais = lista_convidados[j:j+1]
+            nomes_ordenados = nomes_iguais.sort()
+            for k in range(len(nomes_iguais)):
+                lista_convidados[j], lista_convidados[j+1] = nomes_iguais[k], nomes_iguais[k+1]
 
-valor_comida_ordenada = valor_comida.copy()
-valor_ordenada = valor_comida_ordenada.sort()
-for valor in valor_comida_ordenada:
-    i_antigo = valor_comida.index(valor)
-    i_novo = valor_comida_ordenada.index(valor)
-    
+print("Lista de convidados do Calabreso")
+for z in range(len(lista_convidados)):
     for nome in lista_convidados:
-        lista_convidados[i_novo] = lista_convidados[i_antigo]
-
-print("Lista de convidados do Calabreso")
-for nome in lista_convidados:
-    j = 0
-    print(f"{j+1}- {nome}")
+        print(f"{z+1}- {nome}")
