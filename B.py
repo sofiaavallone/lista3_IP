@@ -7,9 +7,9 @@ passou = 0
 for i in range(num_convidados):
     nome = input()
     if nome == "Maicon Kuster":
-        print("você é convidado DE GUÊÊ???, sai da minha festa seu FOFOQUEIRO!!")
         comida_inutil = input()
         valor_inutil = int(input())
+        print("você é convidado DE GUÊÊ???, sai da minha festa seu FOFOQUEIRO!!")
     else:
         lista_convidados.append(nome)
 
@@ -45,18 +45,17 @@ else:
 
     # Ordenando a lista em ordem crescente
     n = len(valor_comida)
-    for i in range(n-1):
-        for s in range(n-i-1):
-            if valor_comida[s] > valor_comida[s+1]:
-                valor_comida[s], valor_comida[s+1] = valor_comida[s+1], valor_comida[s]
-                lista_convidados[s], lista_convidados[s+1] = lista_convidados[s+1], lista_convidados[s]
+    for s in range(n-1):
+        if valor_comida[s] > valor_comida[s+1]:
+            valor_comida[s], valor_comida[s+1] = valor_comida[s+1], valor_comida[s]
+            lista_convidados[s], lista_convidados[s+1] = lista_convidados[s+1], lista_convidados[s]
+            lista_comidas[s], lista_comidas[s+1] = lista_comidas[s+1], lista_comidas[s]
+        elif valor_comida[s] == valor_comida[s+1]:
+            nomes_iguais = lista_convidados[s:s+2]
+            nomes_iguais.sort()
+            for k in range(len(nomes_iguais)-1):
+                lista_convidados[s], lista_convidados[s+1] = nomes_iguais[k], nomes_iguais[k+1]
                 lista_comidas[s], lista_comidas[s+1] = lista_comidas[s+1], lista_comidas[s]
-            elif valor_comida[s] == valor_comida[s+1]:
-                nomes_iguais = lista_convidados[s:s+2]
-                nomes_iguais.sort()
-                for k in range(len(nomes_iguais)-1):
-                    lista_convidados[s], lista_convidados[s+1] = nomes_iguais[k], nomes_iguais[k+1]
-                    lista_comidas[s], lista_comidas[s+1] = lista_comidas[s+1], lista_comidas[s]
 
     # Comida mais cara
     valor_comida_cara = valor_comida[-1]
@@ -71,8 +70,9 @@ else:
         comida_barata = lista_comidas[0]
         print(f"Rapaz, {pessoa_comida_barata} trouxe o(a) {comida_barata} que estava altamente mais ou menos!!!")
 
-print("Lista de convidados do Calabreso")
-z=0
-for nome in lista_convidados:
-    print(f"{z+1}- {nome}")
-    z+=1
+if passou != 0:
+    print("Lista de convidados do Calabreso")
+    z=0
+    for nome in lista_convidados:
+        print(f"{z+1}- {nome}")
+        z+=1
