@@ -43,7 +43,7 @@ if passou == 0 or len(lista_convidados) == 0:
     print("Nenhum convidado marcou presença na festa do calabreso!")
 else:
 
-    # Ordenando a lista em ordem crescente
+    # Ordenando a lista em ordem crescente (Bubble Sort)
     n = len(valor_comida)
     for s in range(n-1):
         if valor_comida[s] > valor_comida[s+1]:
