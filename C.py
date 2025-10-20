@@ -53,8 +53,8 @@ while habilidade_final < 100 and chave == True:
                     ponto = meta*1.5
                     print("REBECA? Is that you?")
                     print("Ispidi mai friand, recieve!")
-                #elif nome_goleiro == "Sérgio Soares":
-                    #print("DALE DALE, PROFESSOR! Quero ver se esse tal de Python é bom mesmo…")
+                elif nome_goleiro == "Sérgio Soares":
+                    print("DALE DALE, PROFESSOR! Quero ver se esse tal de Python é bom mesmo…")
                 elif nome_goleiro == "Neymar Jr":
                     ponto = meta/2
                     print("Ele nem sabe agarrar! A arma dele é a sua fragilidade…")
@@ -67,7 +67,11 @@ while habilidade_final < 100 and chave == True:
                 else: # Rokenedy
                     print("Aí não dá, impossível de fazer gol no maior do mundo.")
                 
-                print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+
+                if nome_goleiro != "Rokenedy" and nome_goleiro != "Sérgio Soares":       
+                    print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+                else:
+                    print("A jornada ainda não acabou!")
             else:
                 print("A jornada ainda não acabou!")
         
@@ -100,7 +104,10 @@ while habilidade_final < 100 and chave == True:
                 else: # Rokenedy
                     print("Aí não dá, impossível de fazer gol no maior do mundo.")
                 
-                print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+                if nome_goleiro != "Rokenedy" and nome_goleiro != "Sérgio Soares":       
+                    print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
+                else:
+                    print("A jornada ainda não acabou!")
             else:
                 print("A jornada ainda não acabou!")
         # Ataque
@@ -131,7 +138,7 @@ while habilidade_final < 100 and chave == True:
                 else: # Rokenedy
                     print("Aí não dá, impossível de fazer gol no maior do mundo.")
                 
-                if nome_goleiro != "Rokenedy":       
+                if nome_goleiro != "Rokenedy" and nome_goleiro != "Sérgio Soares":       
                     print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
                 else:
                     print("A jornada ainda não acabou!")
