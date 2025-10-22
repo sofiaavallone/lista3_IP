@@ -32,7 +32,8 @@ for i in range(1, len(treinos_goleiros), 2):
 chave = True
 while habilidade_final < 100 and chave == True:
     # Partidas
-    for i in range(len(treino_goleiro)):
+    i = 0
+    while i < len(treino_goleiro)  and chave == True:
         ponto = 0
         tipo_treino = treino_goleiro[i][0]
         nome_goleiro = treino_goleiro[i][1]
@@ -104,7 +105,7 @@ while habilidade_final < 100 and chave == True:
                 else: # Rokenedy
                     print("Aí não dá, impossível de fazer gol no maior do mundo.")
                 
-                if nome_goleiro != "Rokenedy" and nome_goleiro != "Sérgio Soares":       
+                if nome_goleiro != "Rokenedy":       
                     print("RECEBA! GOLAÇO! É O MELHOR DO MUNDO!")
                 else:
                     print("A jornada ainda não acabou!")
@@ -145,14 +146,19 @@ while habilidade_final < 100 and chave == True:
             else:
                 print("A jornada ainda não acabou!")
  
-        if habilidade_final < 100:
+        habilidade_final+=ponto 
+
+        if habilidade_final <= 100:
             if ponto >= meta:
                 print(f"VAMO! PARTIDA {i+1} DE {len(treino_goleiro)}!")
             else:
                 print("Dá pra recuperar depois! Vamo seguindo!")
+        else:
+            chave = False
 
-        habilidade_final+=ponto 
+        i+=1
     chave = False
+    
 
 # Resultado final
 if habilidade_final > 100:

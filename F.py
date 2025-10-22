@@ -1,7 +1,5 @@
-print("Senhoras e senhores, o desfile de gala do CIn vai começar!")
-
-monitores = ["Adrieli Queiroz", "Arthur Jorge", "César Cavalcanti", " Elisson Oliveira", "Filipe Moreira", "Gabriela Alves", "Joab Henrique", "Maria Fernanda", "Miriam Gonzaga", "Sofia Remindes"]
-monitores_disponiveis = ["Adrieli Queiroz", "Arthur Jorge", "César Cavalcanti", " Elisson Oliveira", "Filipe Moreira", "Gabriela Alves", "Joab Henrique", "Maria Fernanda", "Miriam Gonzaga", "Sofia Remindes"]
+monitores = ["Adrieli Queiroz", "Arthur Jorge", "César Cavalcanti", "Elisson Oliveira", "Filipe Moreira", "Gabriela Alves", "Joab Henrique", "Maria Fernanda", "Miriam Gonzaga", "Sofia Remindes"]
+monitores_disponiveis = ["Adrieli Queiroz", "Arthur Jorge", "César Cavalcanti", "Elisson Oliveira", "Filipe Moreira", "Gabriela Alves", "Joab Henrique", "Maria Fernanda", "Miriam Gonzaga", "Sofia Remindes"]
 desfilantes = []
 intrusos = []
 numero_desfilantes = int(input())
@@ -26,6 +24,7 @@ for i in range(numero_desfilantes):
     elif desfilante == patrocinador:
         if cont_invasoes == 3 and core == False:
             desfilantes.append("Core")
+            desfilantes.append(desfilante)
             intrusos.append(desfilante)
             core = True
         else:
@@ -34,15 +33,22 @@ for i in range(numero_desfilantes):
     else:
         if cont_invasoes == 3 and core == False:
             desfilantes.append("Core")
+            desfilantes.append(desfilante)
             intrusos.append(desfilante)
             core = True
         else:
             desfilantes.append(desfilante)
             intrusos.append(desfilante)
         cont_invasoes+=1
+    
+    if cont_invasoes == 3 and core == False:
+            desfilantes.append("Core")
+            core = True
+
 
 # Substituindo os invasores não tolerados e outputs
-for i in range(numero_desfilantes):
+print("Senhoras e senhores, o desfile de gala do CIn vai começar!")
+for i in range(len(desfilantes)):
     s_substituicao = False
 
     if desfilantes[i] not in monitores and desfilantes[i] != patrocinador and desfilantes[i] != "Core":
@@ -73,4 +79,3 @@ if "Gretchen" in intrusos or "Tulla Luana" in intrusos or "Inês Brasil" in intr
             print('"Ninguém ser humano está acima de mim! Mas eu estou acima de muitos... é assim que eu penso."')
         elif intrusos[i] == "Inês Brasil":
             print('"É aquele ditado... Vamo fazer o quê?"')
-    
