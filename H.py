@@ -1,6 +1,5 @@
 influencers = ["Sofia Santino", "Doarda", "Ciclopin", "Bruna Pinheiro"]
 cantores = ["Thiaguinho", "Little Thiago", "Neiff", "O Diferenciado", "Veigh", "Mc Loma"]
-tutorial = ["Como a vida não precisa ser only fechos, a gente vai finalizar minha franja hoje:", "Essa chapinha eu dei literalmente tipo 50 reais nela.", "Não é a mais potente, não é a mais mais... mas ela é algo. Às vezes a gente só precisa ser algo, não precisa ser tudo.", "E o protetor térmico? Vei, a chapinha sabe que eu tô fazendo de coração, ela nunca queimaria meu cabelo.", "Espera esfriar e você vai barbarizar quando tiver pronto", "É isso, tchau meus amores"]
 pautas = ["Medo de ficar musculosa demais por causa da academia", "O cara que eu gosto não me quer, mas eu continuo insistindo. Acha que eu consigo algo?", "Meu chefe só me dá um dia de folga, mas eu precisava de dois.", "Pessoas que adoram se fazer de coitadinhas", "Essa história de que homem sofre calado"]
 convidados = []
 
@@ -36,11 +35,14 @@ while confirmacao != "WhatsApp: 0 mensagens." and confirmacao != "CABOSSE! Bora 
 
 # Ninguém confirmou
 if confirmacao == "WhatsApp: 0 mensagens.":
-    print()
-    for frase in tutorial:
-        print(frase)
     print("I hate to tell you this BUT")
     print("Bia tava achando que ia fazer um mousse. O mousse virou uma piada, parceira")
+    print()
+    print("Como a vida não precisa ser only fechos, a gente vai finalizar minha franja hoje:")
+    print("Essa chapinha eu dei literalmente tipo 50 reais nela. Não é a mais potente, não é a mais mais... mas ela é algo. Às vezes a gente só precisa ser algo, não precisa ser tudo.")
+    print("E o protetor térmico? Vei, a chapinha sabe que eu tô fazendo de coração, ela nunca queimaria meu cabelo.")
+    print("Espera esfriar e você vai barbarizar quando tiver pronto")
+    print("É isso, tchau meus amores")
 else:
     # Todos são cantores
     if total == cont_cantores:
