@@ -1,6 +1,5 @@
 print("Iniciando investigação... Zé Felipe está focado.")
 eventos = [] # Personagem, tipo de evento, hora início e hora fim
-eventos_ja_comparados = []
 nivel_suspeita = 0
 
 numero_eventos = int(input())
@@ -41,28 +40,26 @@ while i < len(eventos) and chave == False:
         chave = True
         nivel_suspeita = 100
     else:
-        if evento not in eventos_ja_comparados and (personagem == "V" or personagem2 == "V"):
-            for j in range(len(eventos)): # Comparando com o evento atual para pegar os eventos iguais
-                if j != i:
-                    # Evento que vai comparar com o inicial
-                    personagem2 = eventos[j][0]
-                    evento2 = eventos[j][1]
-                    inicio2 = int(eventos[j][2].replace(":", ""))
-                    fim2 = int(eventos[j][3].replace(":", ""))
+        for j in range(len(eventos)): # Comparando com o evento atual para pegar os eventos iguais
+                # Evento que vai comparar com o inicial
+                personagem2 = eventos[j][0]
+                evento2 = eventos[j][1]
+                inicio2 = int(eventos[j][2].replace(":", ""))
+                fim2 = int(eventos[j][3].replace(":", ""))
 
-                    if evento2 == evento:
-                        # Regra 2
-                        if (personagem2 == "V" and personagem == "JM") or (personagem2 == "JM" and personagem == "V"):
-                            if inicio < fim2 and inicio2 < fim:
-                                nivel_suspeita+=35
-                                encontros_suspeitos+=1
-                        # Regra 3
-                        elif (personagem2 == "V" and personagem == "ZF") or (personagem2 == "ZF" and personagem == "V"):
-                            if inicio < fim2 and inicio2 < fim:
-                                if nivel_suspeita > 0:
-                                    nivel_suspeita-=20
-                                alibis+=1
-            eventos_ja_comparados.append(evento)
+                if evento2 == evento:
+                    # Regra 2
+                    if personagem2 == "JM" and personagem == "V":
+                        if inicio < fim2 and inicio2 < fim:
+                            nivel_suspeita+=35
+                            encontros_suspeitos+=1
+                    # Regra 3
+                    elif personagem2 == "ZF" and personagem == "V":
+                        if inicio < fim2 and inicio2 < fim:
+                            nivel_suspeita-=20
+                            if nivel_suspeita < 0:
+                                nivel_suspeita = 0
+                            alibis+=1
     i += 1
 
 # Outputs
