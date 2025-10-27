@@ -134,6 +134,7 @@ while chave == False: # Loop para definir se ainda precisa receber mais componen
         print(f"Ainda não é possível construir o {nome_projeto}! Faltam:")
         print()
         for k in range(len(faltantes)):
-            print(f"{faltantes[k][0]} pack (s) de {faltantes[k][1]}")
-    
+            print(f"{faltantes[k][0]} pack(s) de {faltantes[k][1]}")
+        print()
+        
     rodadas+=1
